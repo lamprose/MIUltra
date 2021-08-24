@@ -1,0 +1,24 @@
+<resources>
+    <string name="xposed_desc">MIUI12.5插件</string>
+    <string name="pref_main_miui_title">MIUI</string>
+    <string name="app_name">MIUltra</string>
+    <string name="pref_main_system_ui_title">系统界面</string>
+    <string name="pref_title">小米指纹快捷功能</string>
+    <string name="pref_top_title_text">说明</string>
+    <string name="pref_app_setting_title_text">模块设置</string>
+    <string name="pref_top_title_summary">需要重启SystemUI或重启后生效(右上角重启SystemUI)</string>
+    <string name="hide_app_icon_text">隐藏图标</string>
+    <string name="hide_app_icon_on_summary">已隐藏桌面图标,可在xposed框架内打开</string>
+    <string name="hide_app_icon_off_summary">已关闭</string>
+    <string name="module_status_text">激活状态</string>
+    <string name="module_status_on_summary">已激活</string>
+    <string name="module_status_off_summary">未激活</string>
+    <string name="menu_reboot_systemui">重启SystemUI</string>
+    <string name="menu_about_title">关于</string>
+    <string name="dialog_about_message">我是 lamprose(离司@CoolApk)</string>
+    <string name="pref_notification_blur_style_title">通知栏模糊风格</string>
+    <string name="pref_notification_blur_radius_title">模糊半径</string>
+    <string name="pref_notification_icon_force_android_style_title">通知栏图标强制原生风格</string>
+    <string name="pref_non_default_theme_notification_blur_title">非默认主题开启通知栏模糊</string>
+    <string name="pref_notification_blur_enable_title">通知栏模糊样式修改</string>
+</resources>

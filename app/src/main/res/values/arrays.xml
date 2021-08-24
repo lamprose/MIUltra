@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="scope">
+        <item>com.android.systemui</item>
+    </array>
+    <string-array name="notification_blur_style">
+        <item>风格一</item>
+        <item>风格二</item>
+    </string-array>
+    <string-array name="notification_blur_style_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <integer-array name="notification_blur_style_dark_color_burn">
+        <item>0x618a8a8a</item>
+        <item>0x75737373</item>
+    </integer-array>
+    <integer-array name="notification_blur_style_light_color_burn">
+        <item>-2074585000</item>
+        <item>-1889509280</item>
+    </integer-array>
+    <integer-array name="notification_blur_style_light_color">
+        <item>0x40e3e3e3</item>
+        <item>-1544359182</item>
+    </integer-array>
+    <integer-array name="notification_blur_style_dark_color">
+        <item>0x4d424242</item>
+        <item>-1977211354</item>
+    </integer-array>
+</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        android:summary="@string/pref_top_title_summary"
+        android:title="@string/pref_top_title_text" />
+    <PreferenceCategory android:title="@string/pref_main_system_ui_title">
+        <SwitchPreference
+            android:key="notification_icon_force_android_style"
+            android:title="@string/pref_notification_icon_force_android_style_title" />
+        <SwitchPreference
+            android:key="non_default_theme_notification_blur"
+            android:title="@string/pref_non_default_theme_notification_blur_title" />
+        <SwitchPreference
+            android:key="notification_blur_enable"
+            android:title="@string/pref_notification_blur_enable_title" />
+        <DropDownPreference
+            android:dependency="notification_blur_enable"
+            android:entries="@array/notification_blur_style"
+            android:entryValues="@array/notification_blur_style_value"
+            android:key="notification_blur_style"
+            android:title="@string/pref_notification_blur_style_title" />
+        <SeekBarPreference
+            android:defaultValue="8"
+            android:dependency="notification_blur_enable"
+            android:key="notification_blur_radius"
+            android:max="10"
+            android:title="@string/pref_notification_blur_radius_title"
+            app:min="5"
+            app:showSeekBarValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>

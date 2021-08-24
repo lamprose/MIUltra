@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_app_setting_title_text">
+        <SwitchPreference
+            android:enabled="false"
+            android:key="module_status"
+            android:persistent="false"
+            android:summaryOff="@string/module_status_off_summary"
+            android:summaryOn="@string/module_status_on_summary"
+            android:title="@string/module_status_text" />
+        <SwitchPreference
+            android:key="hide_app_icon"
+            android:summaryOff="@string/hide_app_icon_off_summary"
+            android:summaryOn="@string/hide_app_icon_on_summary"
+            android:title="@string/hide_app_icon_text" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_main_miui_title">
+        <Preference
+            android:key="system_ui"
+            android:persistent="false"
+            android:title="@string/pref_main_system_ui_title" />
+    </PreferenceCategory>
+</PreferenceScreen>
