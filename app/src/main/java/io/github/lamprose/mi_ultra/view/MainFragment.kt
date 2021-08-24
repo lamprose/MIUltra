@@ -22,6 +22,10 @@ class MainFragment(
             getMainActivity().go(SystemUIFragment())
             true
         }
+        findPreference<Preference>("home")?.setOnPreferenceClickListener {
+            getMainActivity().go(HomeFragment())
+            true
+        }
         findPreference<SwitchPreference>("hide_app_icon")?.apply {
             isChecked =
                 pref.getBoolean("hide_app_icon", false) == true

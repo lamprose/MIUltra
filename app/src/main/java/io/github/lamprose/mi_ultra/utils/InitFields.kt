@@ -36,6 +36,7 @@ object InitFields {
     const val SP_NAME = "MI_Ultra"
     const val TAG = "MI_Ultra"
     const val systemUI = "com.android.systemui"
+    const val home = "com.miui.home"
 
     fun initHandleLoadPackage(
         lpparam: XC_LoadPackage.LoadPackageParam,

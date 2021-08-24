@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <PreferenceCategory
-        android:summary="@string/pref_top_title_summary"
+        android:summary="@string/pref_system_ui_top_title_summary"
         android:title="@string/pref_top_title_text" />
     <PreferenceCategory android:title="@string/pref_main_system_ui_title">
         <SwitchPreference

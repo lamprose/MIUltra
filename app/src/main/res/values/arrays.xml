@@ -2,6 +2,7 @@
 <resources>
     <array name="scope">
         <item>com.android.systemui</item>
+        <item>com.miui.home</item>
     </array>
     <string-array name="notification_blur_style">
         <item>风格一</item>

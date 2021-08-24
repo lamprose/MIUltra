@@ -12,6 +12,7 @@ object LogUtil {
 
     private const val maxLength = 4000
     private val handler by lazy { Handler(Looper.getMainLooper()) }
+    private var lastMsg: Any? = null
 
     @JvmOverloads
     fun toast(msg: String, force: Boolean = true) {
@@ -62,6 +63,7 @@ object LogUtil {
 
     @JvmStatic
     fun _d(obj: Any?, tag: String = TAG) {
+        if (lastMsg == obj) return
         doLog(ALog::d, tag = tag, obj = obj, toXposed = false, toToast = false)
     }
 
@@ -74,7 +76,9 @@ object LogUtil {
     @JvmStatic
     @JvmOverloads
     fun i(obj: Any?, tag: String = TAG) {
-        doLog(ALog::i, tag = tag, obj = obj)
+        if (lastMsg == obj) return
+        else lastMsg = obj
+        doLog(ALog::i, tag = tag, obj = obj, toXposed = true, toToast = false)
     }
 
     @JvmStatic
@@ -92,6 +96,6 @@ object LogUtil {
     @JvmStatic
     @JvmOverloads
     fun w(obj: Any?, tag: String = TAG) {
-        doLog(ALog::w, tag = tag, obj = obj)
+        doLog(ALog::w, tag = tag, obj = obj, toXposed = true, toToast = false)
     }
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:summary="@string/pref_home_top_title_summary"
+        android:title="@string/pref_top_title_text" />
+    <PreferenceCategory android:title="@string/pref_home_widget_title">
+        <SwitchPreference
+            android:key="widget_can_drag_to_pa"
+            android:summary="@string/pref_home_widget_can_drag_to_pa_summary"
+            android:title="@string/pref_home_widget_can_drag_to_pa" />
+    </PreferenceCategory>
+</PreferenceScreen>

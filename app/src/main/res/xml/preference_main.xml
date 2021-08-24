@@ -19,5 +19,9 @@
             android:key="system_ui"
             android:persistent="false"
             android:title="@string/pref_main_system_ui_title" />
+        <Preference
+            android:key="home"
+            android:persistent="false"
+            android:title="@string/pref_main_home_title" />
     </PreferenceCategory>
 </PreferenceScreen>

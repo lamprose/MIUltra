@@ -5,6 +5,7 @@ import androidx.preference.DropDownPreference
 import androidx.preference.SeekBarPreference
 import androidx.preference.SwitchPreference
 import io.github.lamprose.mi_ultra.R
+import io.github.lamprose.mi_ultra.utils.Utils
 import io.github.lamprose.mi_ultra.view.base.BasePreferenceFragment
 import java.io.DataOutputStream
 import kotlin.system.exitProcess
@@ -62,19 +63,7 @@ class SystemUIFragment : BasePreferenceFragment(R.string.pref_main_system_ui_tit
     override fun menuClick(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_about -> getMainActivity().showAbout()
-            R.id.menu_reboot_systemui -> {
-                val suProcess = Runtime.getRuntime().exec("su")
-                val os = DataOutputStream(suProcess.outputStream)
-                os.writeBytes("pkill -f com.android.systemui")
-                os.flush()
-                os.close()
-                val exitValue = suProcess.waitFor()
-                if (exitValue == 0) {
-                    exitProcess(0)
-                } else {
-                    throw Exception()
-                }
-            }
+            R.id.menu_reboot_system_ui -> Utils.restartApp("com.android.systemui")
         }
         return true
     }

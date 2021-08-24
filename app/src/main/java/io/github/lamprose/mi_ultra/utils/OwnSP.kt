@@ -28,6 +28,7 @@ import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedBridge
 import io.github.lamprose.mi_ultra.BuildConfig
 import io.github.lamprose.mi_ultra.utils.InitFields.SP_NAME
+import io.github.lamprose.mi_ultra.utils.OwnSP.valueTrueDo
 import java.lang.reflect.Method
 
 object OwnSP {
@@ -39,14 +40,36 @@ object OwnSP {
         }
     }
 
-    fun <T> String.valueTrueDo(value:T,hook: () -> Unit){
+    fun <T> String.valueTrueDo(value: T, hook: () -> Unit) {
         moduleSP?.let {
             when (value) {
-                is Int -> if (it.getInt(this, 0) == value) hook()
-                is String -> if (it.getString(this, "") == value) hook()
-                is Long -> if (it.getLong(this, 0L) == value) hook()
-                is Boolean -> if (it.getBoolean(this, false) == value) hook()
+                is Int -> if (it.getInt(this, 0) == value) {
+                    LogUtil.i("$this equal $value")
+                    hook()
+                }
+                is String -> if (it.getString(this, "") == value) {
+                    LogUtil.i("$this equal $value")
+                    hook()
+                }
+                is Long -> if (it.getLong(this, 0L) == value) {
+                    LogUtil.i("$this equal $value")
+                    hook()
+                }
+                is Boolean -> if (it.getBoolean(this, false) == value) {
+                    LogUtil.i("$this equal $value")
+                    hook()
+                }
             }
         }
+    }
+
+    fun getInt(key: String, defValue: Int = 0, log: Boolean = true): Int {
+        return (moduleSP?.getInt(key, defValue) ?: defValue).also {
+            if (log) LogUtil.i("$key value $it")
+        }
+    }
+
+    fun getString(key: String, defValue: String? = null): String? {
+        return moduleSP?.getString(key, defValue) ?: defValue
     }
 }

@@ -5,6 +5,7 @@ import android.util.Log
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import io.github.lamprose.mi_ultra.utils.InitFields
 import io.github.lamprose.mi_ultra.utils.InitFields.TAG
+import io.github.lamprose.mi_ultra.utils.LogUtil
 import io.github.lamprose.mi_ultra.utils.OwnSP
 import io.github.lamprose.mi_ultra.utils.OwnSP.valueTrueDo
 import io.github.lamprose.mi_ultra.utils.ktx.*
@@ -24,6 +25,7 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                             "isGrayscaleIcon",
                             it.args[0].callMethod("getNotification")
                         )
+                    LogUtil.i("notification_icon_force_android_style success")
                     it.result = bool1 && !bool2
                 }
         }
@@ -38,22 +40,16 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                         .getConstructor().newInstance()
                         .callMethod(
                             "setBlurRadius",
-                            OwnSP.moduleSP?.getInt("notification_blur_radius", 8)
+                            OwnSP.getInt("notification_blur_radius", 8)
                         )!!
                         .callMethod(
                             "addBlendLayer",
-                            OwnSP.moduleSP?.getInt(
-                                "notification_blur_radius_light_color_burn",
-                                -2074585000
-                            ),
+                            OwnSP.getInt("notification_blur_radius_light_color_burn", -2074585000),
                             BlendMode.COLOR_BURN
                         )!!
                         .callMethod(
                             "addBlendLayer",
-                            OwnSP.moduleSP?.getInt(
-                                "notification_blur_radius_light_color",
-                                0x40e3e3e3
-                            ),
+                            OwnSP.getInt("notification_blur_radius_light_color", 0x40e3e3e3),
                             null
                         )!!
                         .callMethod("build")
@@ -64,10 +60,18 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                         .getConstructor().newInstance()
                         .callMethod(
                             "setBlurRadius",
-                            OwnSP.moduleSP?.getInt("notification_blur_radius", 8)
+                            OwnSP.getInt("notification_blur_radius", 8)
                         )!!
-                        .callMethod("addBlendLayer", OwnSP.moduleSP?.getInt("notification_blur_radius_dark_color_burn", 0x618a8a8a), BlendMode.COLOR_BURN)!!
-                        .callMethod("addBlendLayer", OwnSP.moduleSP?.getInt("notification_blur_radius_dark_color", 0x4d424242), null)!!
+                        .callMethod(
+                            "addBlendLayer",
+                            OwnSP.getInt("notification_blur_radius_dark_color_burn", 0x618a8a8a),
+                            BlendMode.COLOR_BURN
+                        )!!
+                        .callMethod(
+                            "addBlendLayer",
+                            OwnSP.getInt("notification_blur_radius_dark_color", 0x4d424242),
+                            null
+                        )!!
                         .callMethod("build")
                 )
         }

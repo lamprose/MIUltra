@@ -19,6 +19,9 @@ class HookEntry : IXposedHookLoadPackage {
             InitFields.systemUI -> {
                 SystemUIHook(lpparam).hook()
             }
+            InitFields.home -> {
+                HomeHook(lpparam).hook()
+            }
             else -> return
         }
     }
