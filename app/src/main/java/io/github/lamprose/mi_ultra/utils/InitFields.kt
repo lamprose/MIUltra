@@ -44,8 +44,6 @@ object InitFields {
         classLoader = lpparam.classLoader
         if (initContext)
             "android.app.Application".hookAfterMethod("attach", Context::class.java) {
-                Log.d(TAG, it.args[0]::class.java.name)
-                Log.d(TAG, (it.args == null).toString() )
                 appContext = it.args[0] as Context
             }
     }

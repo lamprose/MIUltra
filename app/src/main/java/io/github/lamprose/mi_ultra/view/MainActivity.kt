@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
-                        Uri.parse("https://github.com/lamprose/MIUIQuickOpen")
+                        Uri.parse("https://github.com/lamprose/MIUltra")
                     )
                 )
             }
