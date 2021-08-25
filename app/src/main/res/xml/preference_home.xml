@@ -5,8 +5,16 @@
         android:title="@string/pref_top_title_text" />
     <PreferenceCategory android:title="@string/pref_home_widget_title">
         <SwitchPreference
-            android:key="widget_can_drag_to_pa"
+            android:key="home_widget_can_drag_to_pa"
             android:summary="@string/pref_home_widget_can_drag_to_pa_summary"
             android:title="@string/pref_home_widget_can_drag_to_pa" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_home_drawer_title">
+        <SwitchPreference
+            android:key="home_drawer_category_hide_all"
+            android:title="@string/pref_home_drawer_category_hide_all" />
+        <SwitchPreference
+            android:key="home_drawer_list_hide_edit"
+            android:title="@string/pref_home_drawer_list_hide_edit" />
     </PreferenceCategory>
 </PreferenceScreen>

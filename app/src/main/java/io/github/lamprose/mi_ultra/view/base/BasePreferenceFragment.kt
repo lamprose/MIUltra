@@ -1,5 +1,6 @@
 package io.github.lamprose.mi_ultra.view.base
 
+
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
@@ -8,21 +9,16 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
-
-
 import androidx.preference.PreferenceFragmentCompat
 import io.github.lamprose.mi_ultra.R
 import io.github.lamprose.mi_ultra.utils.InitFields
 import io.github.lamprose.mi_ultra.utils.Utils
 import io.github.lamprose.mi_ultra.view.MainActivity
-import java.lang.NullPointerException
 
 
 abstract class BasePreferenceFragment @JvmOverloads constructor(title: Any? = null) :
     PreferenceFragmentCompat() {
-    var title: Any? = null
+    private var title: Any? = null
     lateinit var pref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {

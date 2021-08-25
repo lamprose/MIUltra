@@ -1,19 +1,16 @@
 package io.github.lamprose.mi_ultra.xp.hook
 
 import android.graphics.BlendMode
-import android.util.Log
 import de.robv.android.xposed.callbacks.XC_LoadPackage
-import io.github.lamprose.mi_ultra.utils.InitFields
-import io.github.lamprose.mi_ultra.utils.InitFields.TAG
 import io.github.lamprose.mi_ultra.utils.LogUtil
 import io.github.lamprose.mi_ultra.utils.OwnSP
-import io.github.lamprose.mi_ultra.utils.OwnSP.valueTrueDo
+import io.github.lamprose.mi_ultra.utils.OwnSP.valueEqualDo
 import io.github.lamprose.mi_ultra.utils.ktx.*
 
 class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam) {
 
     override fun hook() {
-        "notification_icon_force_android_style".valueTrueDo(true) {
+        "notification_icon_force_android_style".valueEqualDo(true) {
             "com.android.systemui.statusbar.notification.NotificationUtil".findClass()
                 .hookAfterMethod(
                     "shouldSubstituteSmallIcon",
@@ -29,11 +26,11 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                     it.result = bool1 && !bool2
                 }
         }
-        "non_default_theme_notification_blur".valueTrueDo(true) {
+        "non_default_theme_notification_blur".valueEqualDo(true) {
             "com.miui.systemui.util.MiuiThemeUtils".findClass()
                 .setReturnConstant("isDefaultSysUiTheme", result = true)
         }
-        "notification_blur_enable".valueTrueDo(true) {
+        "notification_blur_enable".valueEqualDo(true) {
             "com.miui.blur.sdk.backdrop.BlurStyle".findClass()
                 .setStaticObjectField(
                     "DEFAULT_LIGHT", "com.miui.blur.sdk.backdrop.BlurStyle${'$'}Builder".findClass()

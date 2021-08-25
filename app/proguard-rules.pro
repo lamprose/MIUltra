@@ -21,6 +21,10 @@
 #-renamesourcefileattribute SourceFile
 -repackageclasses "l"
 
+-optimizationpasses 5
+-allowaccessmodification
+-dontpreverify
+
 -keep class io.github.lamprose.mi_ultra.xp.HookEntry
 -keep class io.github.lamprose.mi_ultra.utils.Utils{
     boolean isModuleActive();

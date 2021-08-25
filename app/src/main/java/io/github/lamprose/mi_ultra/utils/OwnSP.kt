@@ -21,15 +21,10 @@
 
 package io.github.lamprose.mi_ultra.utils
 
-import android.content.Context
-import android.content.SharedPreferences
-import android.util.Log
 import de.robv.android.xposed.XSharedPreferences
 import de.robv.android.xposed.XposedBridge
 import io.github.lamprose.mi_ultra.BuildConfig
 import io.github.lamprose.mi_ultra.utils.InitFields.SP_NAME
-import io.github.lamprose.mi_ultra.utils.OwnSP.valueTrueDo
-import java.lang.reflect.Method
 
 object OwnSP {
     val moduleSP: XSharedPreferences? by lazy {
@@ -40,7 +35,7 @@ object OwnSP {
         }
     }
 
-    fun <T> String.valueTrueDo(value: T, hook: () -> Unit) {
+    fun <T> String.valueEqualDo(value: T, hook: () -> Unit) {
         moduleSP?.let {
             when (value) {
                 is Int -> if (it.getInt(this, 0) == value) {

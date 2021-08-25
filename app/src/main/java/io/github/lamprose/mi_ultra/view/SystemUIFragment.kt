@@ -15,13 +15,6 @@ class SystemUIFragment : BasePreferenceFragment(R.string.pref_main_system_ui_tit
     override fun menuId(): Int = R.menu.system_ui
 
     override fun initData() {
-        findPreference<SwitchPreference>("non_default_theme_notification_blur")?.isChecked =
-            pref.getBoolean("non_default_theme_notification_blur", false)
-        findPreference<SwitchPreference>("notification_icon_force_android_style")?.isChecked =
-            pref.getBoolean("notification_icon_force_android_style", false)
-        findPreference<SeekBarPreference>("notification_blur_radius")?.apply {
-            value = pref.getInt("notification_blur_radius", 0)
-        }
         findPreference<DropDownPreference>("notification_blur_style")?.apply {
             summary =
                 try {
