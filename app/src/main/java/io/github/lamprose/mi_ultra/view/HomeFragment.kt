@@ -18,7 +18,9 @@ class HomeFragment : BasePreferenceFragment("系统桌面") {
         findPreference<SwitchPreference>("widget_can_drag_to_pa")?.apply {
             isEnabled = getMainActivity().packageManager.getInstalledPackages(0).find {
                 it.packageName == "com.miui.home"
-            }?.longVersionCode == 425003427L
+            }?.longVersionCode?.let {
+                it >= 425003427L
+            } == true
         }
     }
 
