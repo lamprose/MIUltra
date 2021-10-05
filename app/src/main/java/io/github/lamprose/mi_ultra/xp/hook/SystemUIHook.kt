@@ -1,4 +1,4 @@
-package io.github.lamprose.mi_ultra.xp.hook
+ package io.github.lamprose.mi_ultra.xp.hook
 
 import android.graphics.BlendMode
 import de.robv.android.xposed.callbacks.XC_LoadPackage
@@ -51,26 +51,33 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                         )!!
                         .callMethod("build")
                 )
-            "com.miui.blur.sdk.backdrop.BlurStyle".findClass()
-                .setStaticObjectField(
-                    "DEFAULT_DARK", "com.miui.blur.sdk.backdrop.BlurStyle${'$'}Builder".findClass()
-                        .getConstructor().newInstance()
-                        .callMethod(
-                            "setBlurRadius",
-                            OwnSP.getInt("notification_blur_radius", 8)
-                        )!!
-                        .callMethod(
-                            "addBlendLayer",
-                            OwnSP.getInt("notification_blur_radius_dark_color_burn", 0x618a8a8a),
-                            BlendMode.COLOR_BURN
-                        )!!
-                        .callMethod(
-                            "addBlendLayer",
-                            OwnSP.getInt("notification_blur_radius_dark_color", 0x4d424242),
-                            null
-                        )!!
-                        .callMethod("build")
-                )
+            "notification_blur_enable".valueEqualDo(true) {
+                "com.miui.blur.sdk.backdrop.BlurStyle".findClass()
+                    .setStaticObjectField(
+                        "HEAVY_LIGHT",
+                        "com.miui.blur.sdk.backdrop.BlurStyle${'$'}Builder".findClass()
+                            .getConstructor().newInstance()
+                            .callMethod(
+                                "setBlurRadius",
+                                OwnSP.getInt("notification_blur_radius", 8)
+                            )!!
+                            .callMethod(
+                                "addBlendLayer",
+                                OwnSP.getInt(
+                                    "notification_blur_radius_light_color_burn",
+                                    -2074585000
+                                ),
+                                BlendMode.COLOR_BURN
+                            )!!
+                            .callMethod(
+                                "addBlendLayer",
+                                OwnSP.getInt("notification_blur_radius_light_color", 0x40e3e3e3),
+                                null
+                            )!!
+                            .callMethod("build")
+                    )
+
+            }
         }
 
     }
