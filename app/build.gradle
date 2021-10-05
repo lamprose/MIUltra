@@ -11,8 +11,8 @@ android {
         applicationId "io.github.lamprose.mi_ultra"
         minSdkVersion 29
         targetSdkVersion 30
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.3"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
