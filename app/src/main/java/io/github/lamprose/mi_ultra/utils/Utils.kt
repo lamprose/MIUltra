@@ -21,13 +21,13 @@ object Utils {
         execProcess("pm clear $pkg")
     }
 
-    fun goToAppManger(context: Context) {
+    fun goToAppManger(context: Context, pkg: String) {
         context.startActivity(Intent("android.settings.APPLICATION_DETAILS_SETTINGS").apply {
             component = ComponentName(
                 "com.android.settings",
                 "com.android.settings.applications.InstalledAppDetails"
             )
-            data = Uri.parse("package:" + context.packageName)
+            data = Uri.parse("package:$pkg")
         })
     }
 

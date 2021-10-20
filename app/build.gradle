@@ -11,8 +11,8 @@ android {
         applicationId "io.github.lamprose.mi_ultra"
         minSdkVersion 29
         targetSdkVersion 30
-        versionCode 4
-        versionName "1.4"
+        versionCode 5
+        versionName "1.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -35,6 +35,17 @@ android {
     packagingOptions {
         exclude("META-INF/com/**")
         exclude("kotlin/**")
+    }
+
+    // 一定要写在android节点中
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            println outputFileName
+            if (outputFileName != null && outputFileName.endsWith('.apk')) {
+                def fileName = "MIUltra-V${variant.versionName}.apk"
+                outputFileName = fileName
+            }
+        }
     }
 }
 
