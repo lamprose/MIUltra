@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:summary="@string/pref_power_keeper_top_title_summary"
+        android:title="@string/pref_top_title_text" />
+    <SwitchPreference
+        android:key="power_keeper_block_cloud_fps_config"
+        android:title="@string/pref_power_keeper_block_cloud_fps_config"
+        android:summary="@string/pref_power_keeper_block_cloud_fps_config_summary"/>
+    <Preference
+        android:key="power_keeper_block_view"
+        android:title="@string/pref_power_keeper_block_view"/>
+</PreferenceScreen>

@@ -4,11 +4,13 @@
     <string name="app_name">MIUltra</string>
     <string name="pref_main_system_ui_title">系统界面</string>
     <string name="pref_main_home_title">系统桌面</string>
+    <string name="pref_main_power_keeper_title">电量和性能</string>
     <string name="pref_title">小米指纹快捷功能</string>
     <string name="pref_top_title_text">说明</string>
     <string name="pref_app_setting_title_text">模块设置</string>
     <string name="pref_system_ui_top_title_summary">需要重启SystemUI或重启后生效(右上角重启SystemUI)</string>
     <string name="pref_home_top_title_summary">需要重启桌面或重启后生效(右上角重启桌面)</string>
+    <string name="pref_power_keeper_top_title_summary">需要强行停止电量和性能后生效(右上角重启电量和性能)</string>
     <string name="pref_main_top_title_summary">请注意部分功能只在稳定版测试生效,实际效果取决于你的系统版本以及对应app的版本</string>
     <string name="hide_app_icon_text">隐藏图标</string>
     <string name="hide_app_icon_on_summary">已隐藏桌面图标,可在xposed框架内打开</string>
@@ -18,6 +20,7 @@
     <string name="module_status_off_summary">未激活</string>
     <string name="menu_reboot_system_ui">重启SystemUI</string>
     <string name="menu_reboot_home">重启桌面</string>
+    <string name="menu_goto_power_keeper">跳转电量和性能管理界面</string>
     <string name="menu_about_title">关于</string>
     <string name="dialog_about_message">我是 lamprose(离司@CoolApk)</string>
     <string name="pref_notification_blur_style_title">通知栏模糊风格</string>
@@ -31,4 +34,7 @@
     <string name="pref_home_drawer_title">抽屉模式</string>
     <string name="pref_home_drawer_category_hide_all">顶部分类删除全部</string>
     <string name="pref_home_drawer_list_hide_edit">分页内删除编辑</string>
+    <string name="pref_power_keeper_block_cloud_fps_config">屏蔽云控动态FPS</string>
+    <string name="pref_power_keeper_block_cloud_fps_config_summary">需要清除电量和性能数据后生效(右上角跳转电量和性能管理界面)</string>
+    <string name="pref_power_keeper_block_view">跳转神隐模式云控界面</string>
 </resources>

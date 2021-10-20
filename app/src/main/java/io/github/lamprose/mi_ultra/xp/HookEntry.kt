@@ -22,6 +22,9 @@ class HookEntry : IXposedHookLoadPackage {
             InitFields.home -> {
                 HomeHook(lpparam).hook()
             }
+            InitFields.powerKeeper->{
+                PowerKeeperHook(lpparam).hook()
+            }
             else -> return
         }
     }

@@ -25,5 +25,9 @@
             android:key="home"
             android:persistent="false"
             android:title="@string/pref_main_home_title" />
+        <Preference
+            android:key="power_keeper"
+            android:persistent="false"
+            android:title="@string/pref_main_power_keeper_title" />
     </PreferenceCategory>
 </PreferenceScreen>

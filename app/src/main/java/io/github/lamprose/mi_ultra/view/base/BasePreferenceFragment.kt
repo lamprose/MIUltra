@@ -92,7 +92,7 @@ abstract class BasePreferenceFragment @JvmOverloads constructor(title: Any? = nu
 
     abstract fun menuId(): Int
 
-    abstract fun initData()
+    open fun initData() {}
 
     abstract fun menuClick(item: MenuItem): Boolean
 }

@@ -37,6 +37,7 @@ object InitFields {
     const val TAG = "MI_Ultra"
     const val systemUI = "com.android.systemui"
     const val home = "com.miui.home"
+    const val powerKeeper = "com.miui.powerkeeper"
 
     fun initHandleLoadPackage(
         lpparam: XC_LoadPackage.LoadPackageParam,
