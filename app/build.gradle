@@ -40,10 +40,8 @@ android {
     // 一定要写在android节点中
     applicationVariants.all { variant ->
         variant.outputs.all {
-            println outputFileName
             if (outputFileName != null && outputFileName.endsWith('.apk')) {
-                def fileName = "MIUltra-V${variant.versionName}.apk"
-                outputFileName = fileName
+                outputFileName = "MIUltra-V${variant.versionName}.apk"
             }
         }
     }
