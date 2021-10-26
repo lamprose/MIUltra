@@ -12,10 +12,13 @@ import io.github.lamprose.mi_ultra.utils.LogUtil
 import de.robv.android.xposed.XC_MethodHook
 import de.robv.android.xposed.XC_MethodHook.MethodHookParam
 import de.robv.android.xposed.XC_MethodReplacement
+import de.robv.android.xposed.XposedBridge
 import de.robv.android.xposed.XposedBridge.*
+import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.XposedHelpers.*
 import de.robv.android.xposed.callbacks.XC_LayoutInflated
 import io.github.lamprose.mi_ultra.utils.InitFields.TAG
+import java.lang.IllegalArgumentException
 import java.lang.reflect.Field
 import java.lang.reflect.Member
 
@@ -370,6 +373,21 @@ fun Class<*>.getStaticObjectField(field: String?): Any? = getStaticObjectField(t
 
 fun Class<*>.setStaticObjectField(field: String?, obj: Any?) = apply {
     setStaticObjectField(this, field, obj)
+}
+
+fun Class<*>.setStaticObjectFieldIfExists(field: String?, obj: Any?) = apply {
+    try {
+        findField(this, field)[null] = obj
+    } catch ( e:NoSuchFieldError) {
+        log(e)
+        return this
+    }catch (e: IllegalAccessException) {
+        // should not happen
+        log(e)
+        throw IllegalAccessError(e.message)
+    } catch (e: IllegalArgumentException) {
+        throw e
+    }
 }
 
 @Suppress("UNCHECKED_CAST")

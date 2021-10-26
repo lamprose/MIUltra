@@ -32,7 +32,7 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
         }
         "notification_blur_enable".valueEqualDo(true) {
             "com.miui.blur.sdk.backdrop.BlurStyle".findClass()
-                .setStaticObjectField(
+                .setStaticObjectFieldIfExists(
                     "DEFAULT_LIGHT", "com.miui.blur.sdk.backdrop.BlurStyle${'$'}Builder".findClass()
                         .getConstructor().newInstance()
                         .callMethod(
@@ -52,7 +52,7 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                         .callMethod("build")
                 )
             "com.miui.blur.sdk.backdrop.BlurStyle".findClass()
-                .setStaticObjectField(
+                .setStaticObjectFieldIfExists(
                     "DEFAULT_DARK", "com.miui.blur.sdk.backdrop.BlurStyle${'$'}Builder".findClass()
                         .getConstructor().newInstance()
                         .callMethod(
@@ -72,7 +72,7 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                         .callMethod("build")
                 )
             "com.miui.blur.sdk.backdrop.BlurStyle".findClass()
-                .setStaticObjectField(
+                .setStaticObjectFieldIfExists(
                     "HEAVY_LIGHT",
                     "com.miui.blur.sdk.backdrop.BlurStyle${'$'}Builder".findClass()
                         .getConstructor().newInstance()
@@ -95,9 +95,10 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                             )!!
                             .callMethod("build")
                     )
-
-
         }
-
+        "default_folding_first_notification".valueEqualDo(true){
+            "com.android.systemui.statusbar.notification.row.ExpandableNotificationRow".findClass()
+                .setReturnConstant("isSystemExpanded",result = false)
+        }
     }
 }

@@ -28,6 +28,7 @@
     <string name="pref_notification_icon_force_android_style_title">通知栏图标强制原生风格</string>
     <string name="pref_non_default_theme_notification_blur_title">非默认主题开启通知栏模糊</string>
     <string name="pref_notification_blur_enable_title">通知栏模糊样式修改</string>
+    <string name="pref_status_default_folding_first_notification">首条通知默认折叠</string>
     <string name="pref_home_widget_title">内测小组件</string>
     <string name="pref_home_widget_can_drag_to_pa">第三方小部件可拖拽至负一屏</string>
     <string name="pref_home_widget_can_drag_to_pa_summary">只适配了版本号大于等于425003427的内测桌面(因为只有这些版本支持内测小组件)</string>

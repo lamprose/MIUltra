@@ -28,5 +28,8 @@
             android:title="@string/pref_notification_blur_radius_title"
             app:min="5"
             app:showSeekBarValue="true" />
+        <SwitchPreference
+            android:key="default_folding_first_notification"
+            android:title="@string/pref_status_default_folding_first_notification"/>
     </PreferenceCategory>
 </PreferenceScreen>
