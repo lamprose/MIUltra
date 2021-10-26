@@ -36,5 +36,5 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v2
         with:
-          path: app/build/outputs/apk/release/MIUltra-*.apk
+          path: ${{steps.sign.outputs.signedReleaseFile}}
 
