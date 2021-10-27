@@ -1,6 +1,7 @@
 ## MIUltra
 一个可能使MIUI更好用的xposed模块
 
+[![Android CI](https://github.com/lamprose/MIUltra/actions/workflows/android.yml/badge.svg)](https://github.com/lamprose/MIUltra/actions/workflows/android.yml) [![Stars](https://img.shields.io/github/stars/lamprose/MIUltra?label=stars)](https://github.com/lamprose/MIUltra) [![Download](https://img.shields.io/github/downloads/Xposed-Modules-Repo/io.github.lamprose.mi_ultra/total)](https://github.com/Xposed-Modules-Repo/io.github.lamprose.mi_ultra/releases) [![Release](https://img.shields.io/github/v/release/Xposed-Modules-Repo/io.github.lamprose.mi_ultra?label=release)](https://github.com/Xposed-Modules-Repo/io.github.lamprose.mi_ultra/releases/latest)
 ### 使用条件
 + MIUI12.5
 + Android11(其他版本自测)
