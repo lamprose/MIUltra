@@ -9,8 +9,7 @@ import io.github.lamprose.mi_ultra.utils.ktx.*
 class HomeHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam) {
     override fun hook() {
         "home_widget_can_drag_to_pa".valueEqualDo(true) {
-            "com.miui.home.launcher.Workspace".findClass()
-                .setReturnConstant("canDragToPa", result = true)
+            "com.miui.home.launcher.Workspace".setReturnConstant("canDragToPa", result = true)
         }
         "home_drawer_category_hide_all".valueEqualDo(true) {
             "com.miui.home.launcher.allapps.category.AllAppsCategoryListContainer"
