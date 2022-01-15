@@ -25,6 +25,14 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                     LogUtil.i("notification_icon_force_android_style success")
                     it.result = bool1 && !bool2
                 }
+            "com.android.systemui.statusbar.notification.row.NotificationContentInflaterInjector"
+                .replaceMethod(
+                    classLoader,
+                    "handleAppIcon",
+                    RemoteViews::class.java, Notification::class.java
+                ) {
+                    LogUtil.i("replace handleAppIcon success")
+                }
         }
         "non_default_theme_notification_blur".valueEqualDo(true) {
             "com.miui.systemui.util.MiuiThemeUtils".setReturnConstant(
