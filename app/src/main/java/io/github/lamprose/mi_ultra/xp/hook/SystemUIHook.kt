@@ -1,6 +1,8 @@
 package io.github.lamprose.mi_ultra.xp.hook
 
 import android.graphics.BlendMode
+import android.app.Notification
+import android.widget.RemoteViews
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import io.github.lamprose.mi_ultra.utils.LogUtil
 import io.github.lamprose.mi_ultra.utils.OwnSP
