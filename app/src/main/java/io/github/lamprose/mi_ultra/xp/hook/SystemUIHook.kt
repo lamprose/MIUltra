@@ -1,6 +1,8 @@
 package io.github.lamprose.mi_ultra.xp.hook
 
 import android.graphics.BlendMode
+import android.app.Notification
+import android.widget.RemoteViews
 import de.robv.android.xposed.callbacks.XC_LoadPackage
 import io.github.lamprose.mi_ultra.utils.LogUtil
 import io.github.lamprose.mi_ultra.utils.OwnSP
@@ -24,6 +26,14 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                         )
                     LogUtil.i("notification_icon_force_android_style success")
                     it.result = bool1 && !bool2
+                }
+            "com.android.systemui.statusbar.notification.row.NotificationContentInflaterInjector"
+                .replaceMethod(
+                    classLoader,
+                    "handleAppIcon",
+                    RemoteViews::class.java, Notification::class.java
+                ) {
+                    LogUtil.i("replace handleAppIcon success")
                 }
         }
         "non_default_theme_notification_blur".valueEqualDo(true) {
