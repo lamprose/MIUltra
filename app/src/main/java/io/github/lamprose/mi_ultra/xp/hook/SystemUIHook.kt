@@ -29,7 +29,6 @@ class SystemUIHook(lpparam: XC_LoadPackage.LoadPackageParam) : BaseHook(lpparam)
                 }
             "com.android.systemui.statusbar.notification.row.NotificationContentInflaterInjector"
                 .replaceMethod(
-                    classLoader,
                     "handleAppIcon",
                     RemoteViews::class.java, Notification::class.java
                 ) {
